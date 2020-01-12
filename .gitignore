@@ -1,0 +1,6 @@
+__pycache__
+node_modules
+data_collection
+
+package-lock.json
+credentials.json

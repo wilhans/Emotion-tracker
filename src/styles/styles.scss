@@ -1,0 +1,36 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.app-container {
+    height: 100vh;
+    width: 100%;
+    background-color: azure;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.comment-wrapper {
+    text-align: center;
+    flex-direction: column;
+    div {
+        padding-bottom: 8px;
+    }
+}
+
+.result-wrapper {
+    display: flex;
+}
+
+.emotion-card {
+    padding: 16px;
+    margin: 0px 8px;
+}
+
+.comment-input {
+    width: 40vw;
+    height: 15vh;
+}

@@ -10,24 +10,28 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
 }
 
 .comment-wrapper {
     text-align: center;
-    flex-direction: column;
+    width: 50vw;
     div {
         padding-bottom: 8px;
     }
+    padding: 0px 16px;
 }
 
 .result-wrapper {
     display: flex;
+    width: 50vw;
+    flex-direction: column;
+    padding: 0px 16px;
 }
 
-.emotion-card {
-    padding: 16px;
-    margin: 0px 8px;
+.emotion-list {
+    padding: 8px 0px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .comment-input {

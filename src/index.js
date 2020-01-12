@@ -3,12 +3,6 @@ import * as ReactDOM from "react-dom";
 
 import './styles/styles.scss'
 
-const mockResult = {
-    happy: 0.53,
-    sad: 0.17,
-    angry: 0.3,
-}
-
 const Comment = (props) => {
     const { onResultChange } = props;
     const [comment, setComment] = useState('');
@@ -18,9 +12,19 @@ const Comment = (props) => {
     }
 
     const handleClick = () => {
-        console.log(comment)
-        // Connect to back end, get result.
-        onResultChange(mockResult)
+        fetch('/emote_rate', {
+            method: 'post',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type':'application/json'
+            },
+            body: JSON.stringify({
+                comment: comment
+            })
+        }).then((res) => res.json())
+            .then((retval) => {
+                onResultChange(retval)
+            });
     }
 
     return (
@@ -36,12 +40,13 @@ const Suggestion = (props) => {
     const { result } = props;
     return (
         <div className="result-wrapper">
-            {Object.entries(result).map((element) => {
-                const key = element[0], value= element[1];
+            Emotion rate
+            {result.map((element, index) => {
+                const label = element.label, score= element.score;
                 return (
-                    <div className="emotion-card">
-                        {key}
-                        <div className="emotion-rate">{value}</div>
+                    <div className="emotion-list" key={`emotion-${index}`}>
+                        <div className="emotion-label">{label}</div>
+                        <div className="emotion-rate">{score}</div>
                     </div>
                 )
             })}

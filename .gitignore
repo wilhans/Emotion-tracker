@@ -4,3 +4,5 @@ data_collection
 
 package-lock.json
 credentials.json
+
+.env
